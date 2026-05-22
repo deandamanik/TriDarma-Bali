@@ -1,1 +1,36 @@
 @import "tailwindcss";
+
+@theme {
+  --color-brown-light: #efeae8;
+  --color-brown-light-hover: #e7dfdc;
+  --color-brown-light-active: #cebdb6;
+  --color-brown-normal: #622b14;
+  --color-brown-normal-hover: #582712;
+  --color-brown-normal-active: #4e2210;
+  --color-brown-dark: #4a200f;
+  --color-brown-dark-hover: #3b1a0c;
+  --color-brown-dark-active: #2c1309;
+  --color-brown-darker: #220f07;
+
+  --color-orange-light: #fcf5ee;
+  --color-orange-light-hover: #faf0e6;
+  --color-orange-light-active: #f4e1cc;
+  --color-orange-normal: #dd9e59;
+  --color-orange-normal-hover: #c78e50;
+  --color-orange-normal-active: #b17e47;
+  --color-orange-dark: #a67743;
+  --color-orange-dark-hover: #855f35;
+  --color-orange-dark-active: #634728;
+  --color-orange-darker: #4d371f;
+
+  --color-yellow-light: #fefbf6;
+  --color-yellow-light-hover: #fdf9f1;
+  --color-yellow-light-active: #faf3e2;
+  --color-yellow-normal: #f0d8a1;
+  --color-yellow-normal-hover: #d8c291;
+  --color-yellow-normal-active: #c0ad81;
+  --color-yellow-dark: #b4a279;
+  --color-yellow-dark-hover: #908261;
+  --color-yellow-dark-active: #6c6148;
+  --color-yellow-darker: #544c38;
+}
