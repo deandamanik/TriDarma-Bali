@@ -9,6 +9,7 @@ import TempleMap from '../pages/temple-map/TempleMap';
 import ReportViolations from '../pages/report-violations/ReportViolations';
 import Calendar from '../pages/calendar/Calendar';
 import TempleDetail from '../pages/temple-map/TempleDetail';
+import Profile from '../pages/profile/Profile';
 
 const AppRouter = () => {
   return (
@@ -25,6 +26,7 @@ const AppRouter = () => {
       </Route>
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route path="/profile" element={<Profile />} />
 
       {/* Halaman 404 / Not Found */}
       <Route path="*" element={<div className="flex items-center justify-center h-screen">404 - Halaman Tidak Ditemukan</div>} />
