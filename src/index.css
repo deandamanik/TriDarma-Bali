@@ -56,3 +56,11 @@
   --color-yellow-dark-active: #6c6148;
   --color-yellow-darker: #544c38;
 }
+
+@utility no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

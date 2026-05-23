@@ -4,6 +4,7 @@ import Login from '../pages/auth/Login';
 import Register from '../pages/auth/Register';
 import Home from '../pages/home/Home';
 import CulturalEncyclopedia from '../pages/cultural-encyclopedia/CulturalEncyclopedia';
+import ArticleDetail from '../pages/cultural-encyclopedia/ArticleDetail';
 import TempleMap from '../pages/temple-map/TempleMap';
 import ReportViolations from '../pages/report-violations/ReportViolations';
 import Calendar from '../pages/calendar/Calendar';
@@ -14,6 +15,7 @@ const AppRouter = () => {
       <Route element={<MainLayout />}>
         <Route path="/" element={<Home />} />
         <Route path="/cultural-encyclopedia" element={<CulturalEncyclopedia />} />
+        <Route path="/cultural-encyclopedia/:articleId" element={<ArticleDetail />} />
         <Route path="/temple-map" element={<TempleMap />} />
         <Route path="/report-violations" element={<ReportViolations />} />
         <Route path="/calendar" element={<Calendar />} />
