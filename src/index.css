@@ -64,3 +64,41 @@
     display: none;
   }
 }
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  font-family: inherit;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 18px;
+  padding: 4px;
+}
+
+.leaflet-popup-content {
+  margin: 12px;
+}
+
+.leaflet-control-zoom {
+  border: none !important;
+  box-shadow: 0 12px 30px rgba(82, 37, 24, 0.18) !important;
+}
+
+.leaflet-control-zoom a {
+  color: #7a351f !important;
+  border-color: #ead2a3 !important;
+}
+
+.leaflet-control-attribution {
+  font-size: 10px !important;
+}
