@@ -3,6 +3,7 @@ import HomeStats from '../../components/home/HomeStats';
 import HomePhilosophy from '../../components/home/HomePhilosophy';
 import HomeFeatures from '../../components/home/HomeFeatures';
 import DidYouKnow from '../../components/home/DoYouKnow';
+import PreservedBeauty from '../../components/home/PreservedBeauty';
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
       <HomePhilosophy />
       <HomeFeatures />
       <DidYouKnow />
+      <PreservedBeauty />
     </div>
   );
 };

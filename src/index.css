@@ -102,3 +102,36 @@
 .leaflet-control-attribution {
   font-size: 10px !important;
 }
+
+.wrapper-preserved-swiper .swiper-slide {
+  width: 65vw !important; /
+}
+
+@media (min-width: 640px) {
+  .wrapper-preserved-swiper .swiper-slide {
+    width: 300px !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .wrapper-preserved-swiper .swiper-slide {
+    width: 400px !important; 
+  }
+}
+
+.custom-swiper-pagination .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background-color: #3d200a !important;
+  opacity: 0.2;
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+  margin: 0 4px !important;
+  cursor: pointer;
+}
+
+.custom-swiper-pagination .swiper-pagination-bullet-active {
+  width: 20px !important;
+  opacity: 1 !important;
+  background-color: #3d200a !important;
+}
