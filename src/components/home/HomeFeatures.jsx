@@ -39,9 +39,8 @@ const HomeFeatures = () => {
 
   return (
     <section className="w-full bg-white font-poppins overflow-hidden">
-      <div className="w-full bg-[#e19e59] text-white pt-10 pb-12 md:pt-16 md:pb-16 px-5 sm:px-12 md:px-20 lg:px-24 rounded-t-[40px] md:rounded-t-[160px]">
+      <div className="w-full bg-orange-normal text-white pt-10 pb-12 md:pt-16 md:pb-16 px-5 sm:px-12 md:px-20 lg:px-24 rounded-t-[40px] md:rounded-t-[160px]">
         <div className="max-w-7xl mx-auto">
-          
           <div className="flex flex-col md:flex-row items-center md:items-end justify-between mb-8 md:mb-12 gap-6 text-center md:text-left">
             <div className="max-w-2xl w-full">
               <h2 className="text-xl sm:text-3xl md:text-4xl font-bold leading-tight tracking-tight mb-1.5 md:mb-2.5">
