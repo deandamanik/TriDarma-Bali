@@ -78,7 +78,7 @@ const HomeStats = () => {
   };
 
   return (
-    <section className="relative w-full bg-light font-poppins pt-14 pb-24 md:pt-20 md:pb-36 px-6 md:px-12 overflow-hidden">
+    <section className="relative w-full bg-orange-light font-poppins pt-14 pb-24 md:pt-20 md:pb-36 px-6 md:px-12 overflow-hidden">
       <motion.div 
         variants={containerVariants}
         initial="hidden"

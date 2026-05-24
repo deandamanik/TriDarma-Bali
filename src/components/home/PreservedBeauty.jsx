@@ -58,7 +58,7 @@ const PreservedBeauty = () => {
           <h2 className="text-xl sm:text-4xl md:text-5xl font-bold text-brown-normal mb-2.5 tracking-tight">
             The Beauty of Bali That Needs to be Preserved
           </h2>
-          <p className="text-xs sm:text-sm text-[#e19e59] font-medium tracking-wide">
+          <p className="text-xs sm:text-sm text-orange-normal font-medium tracking-wide">
             Priceless cultural heritage that is our shared responsibility
           </p>
         </div>
@@ -98,7 +98,7 @@ const PreservedBeauty = () => {
                 key={item.id} 
                 className="w-[65vw] sm:w-75 md:w-100"
               >
-                <div className="w-full h-72 sm:h-85 md:h-112.5 rounded-3xl overflow-hidden shadow-xl border-4 border-white bg-white transition-transform duration-500">
+                <div className="w-full h-72 sm:h-85 md:h-112.5 rounded-3xl overflow-hidden border-4 shadow-sm border-white bg-white transition-transform duration-500">
                   <img
                     src={item.img}
                     alt={`Bali Beauty ${item.id}`}
@@ -110,7 +110,7 @@ const PreservedBeauty = () => {
           </Swiper>
         </div>
 
-        <div className={`custom-swiper-pagination flex justify-center items-center gap-2 mt-2 transition-opacity duration-1000 delay-500 ${
+        <div className={`custom-swiper-pagination flex justify-center items-center gap-2 mt-8 transition-opacity duration-1000 delay-500 ${
           isVisible ? 'opacity-100' : 'opacity-0'
         }`} />
 
