@@ -99,7 +99,7 @@ const TempleSidePanel = ({ selectedTemple }) => {
 
                                     <Link
                                         to={`/temple-map/${selectedTemple.id}`}
-                                        className="text-xs font-bold text-orange-light/85! no-underline! hover:text-white!"
+                                        className="text-xs font-bold text-orange-light/85 no-underline! hover:text-white!"
                                     >
                                         Detail ›
                                     </Link>
