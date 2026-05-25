@@ -10,13 +10,13 @@ const etiquetteArticle = ARTICLES.find(
 
 const TempleSidePanel = ({ selectedTemple }) => {
     return (
-        <aside className="border-t border-brown-normal bg-white lg:border-l lg:border-t-0">
-            <div className="lg:sticky lg:top-0">
+        <aside className="w-full border-t border-brown-normal bg-white lg:w-115 lg:shrink-0 lg:max-h-[calc(100vh-80px)] lg:overflow-y-auto lg:border-l lg:border-t-0">
+            <div className="flex flex-col">
                 <section className="bg-brown-normal px-5 py-6 text-orange-light sm:px-6">
                     <h1 className="text-xl font-extrabold leading-tight">
                         Dress Code & Prohibitions
                     </h1>
-
+``
                     <p className="mt-1 text-xs font-medium text-orange-light/75">
                         Around {selectedTemple ? selectedTemple.name : 'Selected Temple'}
                     </p>
@@ -99,14 +99,13 @@ const TempleSidePanel = ({ selectedTemple }) => {
 
                                     <Link
                                         to={`/temple-map/${selectedTemple.id}`}
-                                        className="text-xs font-bold !text-orange-light/85 !no-underline hover:!text-white"
+                                        className="text-xs font-bold text-orange-light/85! no-underline! hover:text-white!"
                                     >
                                         Detail ›
                                     </Link>
                                 </div>
                             </article>
                         </section>
-
                         <MsmeList selectedTempleId={selectedTemple.id} />
                     </>
                 )}

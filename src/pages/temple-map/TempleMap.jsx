@@ -43,21 +43,27 @@ const TempleMap = () => {
   }, [searchQuery, statusFilter, sortBy]);
 
   return (
-    <div className="min-h-screen bg-white font-poppins">
-      <div className="grid min-h-screen grid-cols-1 lg:grid-cols-[minmax(0,1fr)_460px] xl:grid-cols-[minmax(0,1fr)_520px]">
-        <TempleLeafletMap
-          temples={filteredTemples}
-          selectedTemple={selectedTemple}
-          onSelectTemple={setSelectedTemple}
-          searchQuery={searchQuery}
-          onSearchChange={setSearchQuery}
-          statusFilter={statusFilter}
-          onStatusFilterChange={setStatusFilter}
-          sortBy={sortBy}
-          onSortChange={setSortBy}
-        />
+    <div className="w-full h-screen max-h-screen bg-white font-poppins overflow-hidden">
+      <div className="relative flex flex-col lg:flex-row h-full w-full overflow-hidden items-stretch">
+        
+        <div className="flex-1 relative z-0 h-full w-full">
+          <TempleLeafletMap
+            temples={filteredTemples}
+            selectedTemple={selectedTemple}
+            onSelectTemple={setSelectedTemple}
+            searchQuery={searchQuery}
+            onSearchChange={setSearchQuery}
+            statusFilter={statusFilter}
+            onStatusFilterChange={setStatusFilter}
+            sortBy={sortBy}
+            onSortChange={setSortBy}
+          />
+        </div>
 
-        <TempleSidePanel selectedTemple={selectedTemple} />
+        <div className="hidden lg:block">
+          <TempleSidePanel selectedTemple={selectedTemple} />
+        </div>
+        
       </div>
     </div>
   );
