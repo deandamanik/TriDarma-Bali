@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion'; 
+import { motion, AnimatePresence, LayoutGroup } from 'framer-motion'; 
 import { PiSignInBold, PiSignOutBold } from 'react-icons/pi';
 import { FiUser, FiMenu, FiX } from 'react-icons/fi';
 import logo from '../../assets/tridarma-logo.svg';
@@ -71,25 +71,36 @@ const Navbar = () => {
         </div>
 
         <div className="hidden lg:flex items-center justify-center flex-1 h-full">
-          <ul className="flex items-center gap-2">
-            {navLinks.map((link) => {
-              const isActive = location.pathname === link.path;
-              return (
-                <li key={link.path} className="relative flex items-center justify-center">
-                  <NavLink to={link.path} className={isActive ? activeLinkClass : inactiveLinkClass}>
-                    <span className="relative z-10">{link.name}</span>
-                    {isActive && (
-                      <motion.div
-                        layoutId="activeMenuBackground"
-                        className="absolute inset-0 bg-orange-normal/50 rounded-xl -z-10"
-                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                      />
-                    )}
-                  </NavLink>
-                </li>
-              );
-            })}
-          </ul>
+          <LayoutGroup id="desktop-nav">
+            <ul className="flex items-center gap-2">
+              {navLinks.map((link) => {
+                const isActive = location.pathname === link.path;
+                return (
+                  <li key={link.path} className="relative flex items-center justify-center">
+                    <NavLink to={link.path} className={isActive ? activeLinkClass : inactiveLinkClass}>
+                      <span className="relative z-10">{link.name}</span>
+                      {isActive && (
+                        <motion.div
+                          layoutId="activeMenuBackground"
+                          className="absolute inset-0 bg-orange-normal/50 rounded-xl -z-10"
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          transition={{ 
+                            type: "spring", 
+                            stiffness: 380, 
+                            damping: 30,
+                            layout: { duration: 0.25 } 
+                          }}
+                          style={{ originY: "50%" }} 
+                        />
+                      )}
+                    </NavLink>
+                  </li>
+                );
+              })}
+            </ul>
+          </LayoutGroup>
         </div>
 
         <div className="hidden lg:flex items-center lg:w-1/4 justify-end h-full">
