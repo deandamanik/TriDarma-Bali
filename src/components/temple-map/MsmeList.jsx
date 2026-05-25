@@ -45,7 +45,7 @@ const MsmeList = ({ selectedTempleId }) => {
     }
 
     return result;
-  }, [templeMsmes, activeCategory, sortBy]);
+  }, [templeMsmes, activeCategoryName, sortBy]);
 
   return (
     <section className="bg-brown-normal px-5 py-6 text-orange-light sm:px-6">

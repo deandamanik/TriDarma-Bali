@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'; 
 import { useEffect } from 'react';
 import {
     MapContainer,
@@ -9,62 +9,68 @@ import {
     useMap,
 } from 'react-leaflet';
 import L from 'leaflet';
+import 'leaflet/dist/leaflet.css'; 
 import { FiClock, FiStar, FiUsers } from 'react-icons/fi';
 import MapSearchBar from './MapSearchBar';
-import iconPura from '../../assets/temple-map/icon-pura.png';
+import iconPura from '../../assets/temple-map/icon-pura.png'; 
+
+const BALI_BOUNDS = [
+    [-8.9, 114.4], 
+    [-8.0, 115.8] 
+];
 
 const createTempleIcon = (status, isActive) => {
-  const statusColor = {
-    ceremony: '#f59e0b',
-    crowded: '#ef4444',
-    normal: '#22c55e',
-  };
+    const statusColor = {
+        ceremony: '#f59e0b',
+        crowded: '#ef4444',
+        normal: '#22c55e',
+    };
 
-  const markerSize = isActive ? 56 : 48;
-  const imageSize = isActive ? 30 : 26;
+    const markerSize = isActive ? 56 : 48;
+    const imageSize = isActive ? 30 : 26;
 
-  return L.divIcon({
-    className: '',
-    html: `
-      <div style="
-        position: relative;
-        width: ${markerSize}px;
-        height: ${markerSize}px;
-        border-radius: 9999px;
-        background: #7a351f;
-        border: 3px solid white;
-        box-shadow: 0 12px 25px rgba(82, 37, 24, 0.35);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      ">
-        <img
-          src="${iconPura}"
-          alt="Temple icon"
-          style="
-            width: ${imageSize}px;
-            height: ${imageSize}px;
-            object-fit: contain;
-            display: block;
-          "
-        />
+    return L.divIcon({
+        className: '',
+        html: `
+        <div style="
+            position: relative;
+            width: ${markerSize}px;
+            height: ${markerSize}px;
+            border-radius: 9999px;
+            background: #7a351f;
+            border: 3px solid white;
+            box-shadow: 0 12px 25px rgba(82, 37, 24, 0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        ">
+            <img
+            src="${iconPura}"
+            alt="Temple icon"
+            style="
+                width: ${imageSize}px;
+                height: ${imageSize}px;
+                object-fit: contain;
+                display: block;
+            "
+            />
 
-        <span style="
-          position: absolute;
-          right: -2px;
-          top: -2px;
-          width: 13px;
-          height: 13px;
-          border-radius: 9999px;
-          background: ${statusColor[status] || '#22c55e'};
-          border: 2px solid white;
-        "></span>
-      </div>
-    `,
-    iconSize: [markerSize, markerSize],
-    iconAnchor: [markerSize / 2, markerSize],
-    popupAnchor: [0, -markerSize],
-  });
+            <span style="
+            position: absolute;
+            right: -2px;
+            top: -2px;
+            width: 13px;
+            height: 13px;
+            border-radius: 9999px;
+            background: ${statusColor[status] || '#22c55e'};
+            border: 2px solid white;
+            "></span>
+        </div>
+        `,
+        iconSize: [markerSize, markerSize],
+        iconAnchor: [markerSize / 2, markerSize],
+        popupAnchor: [0, -markerSize],
+    });
 };
 
 const MapFlyTo = ({ temple }) => {
@@ -98,8 +104,9 @@ const TempleLeafletMap = ({
     sortBy,
     onSortChange,
 }) => {
+    const navigate = useNavigate(); 
     return (
-        <section className="relative min-h-[680px] overflow-hidden bg-white lg:min-h-[calc(100vh-80px)]">
+        <section className="relative w-full h-screen overflow-hidden bg-white pt-0 lg:pt-0">
             <MapSearchBar
                 searchQuery={searchQuery}
                 onSearchChange={onSearchChange}
@@ -116,7 +123,9 @@ const TempleLeafletMap = ({
                 maxZoom={18}
                 zoomControl={false}
                 scrollWheelZoom
-                className="h-[680px] w-full lg:h-[calc(100vh-80px)]"
+                maxBounds={BALI_BOUNDS}
+                maxBoundsViscosity={1.0}
+                className="h-full w-full relative z-0"
             >
                 <TileLayer
                     attribution='&copy; OpenStreetMap contributors'
@@ -136,11 +145,17 @@ const TempleLeafletMap = ({
                             selectedTemple?.id === temple.id
                         )}
                         eventHandlers={{
-                            click: () => onSelectTemple(temple),
+                            click: () => {
+                                if (window.innerWidth < 1024) {
+                                    navigate(`/temple-map/${temple.id}`);
+                                } else {
+                                    onSelectTemple(temple);
+                                }
+                            },
                         }}
                     >
                         <Popup>
-                            <div className="w-[220px] font-poppins">
+                            <div className="w-55 font-poppins">
                                 <p className="mb-1 text-sm font-extrabold text-brown-normal">
                                     {temple.name}
                                 </p>
@@ -176,7 +191,7 @@ const TempleLeafletMap = ({
 
                                 <Link
                                     to={`/temple-map/${temple.id}`}
-                                    className="mt-3 block w-full rounded-lg bg-brown-normal px-3 py-2 text-center text-[11px] font-bold !text-white !no-underline transition hover:bg-brown-dark hover:!text-white"
+                                    className="mt-3 block w-full rounded-lg bg-brown-normal px-3 py-2 text-center text-[11px] font-bold text-white! no-underline! transition hover:bg-brown-dark hover:text-white!"
                                 >
                                     View Detail
                                 </Link>
@@ -187,7 +202,7 @@ const TempleLeafletMap = ({
             </MapContainer>
 
             {temples.length === 0 && (
-                <div className="absolute left-1/2 top-1/2 z-[500] w-[min(90%,360px)] -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-yellow-normal bg-white p-5 text-center shadow-xl">
+                <div className="absolute left-1/2 top-1/2 z-500 w-[90%] max-w-90 -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-yellow-normal bg-white p-5 text-center shadow-xl">
                     <h3 className="text-base font-extrabold text-brown-normal">
                         Pura tidak ditemukan
                     </h3>
@@ -198,7 +213,7 @@ const TempleLeafletMap = ({
                 </div>
             )}
 
-            <div className="absolute bottom-7 left-5 z-[500] rounded-2xl border border-yellow-normal/70 bg-white p-4 shadow-xl shadow-brown-dark/15 sm:left-6 md:p-5">
+            <div className="absolute bottom-7 left-5 z-500 rounded-2xl border border-yellow-normal/70 bg-white p-4 shadow-xl shadow-brown-dark/15 sm:left-6 md:p-5">
                 <h3 className="mb-3 text-xs font-bold text-brown-dark">
                     Temple Status
                 </h3>

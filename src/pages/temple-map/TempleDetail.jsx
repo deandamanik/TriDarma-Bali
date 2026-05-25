@@ -261,7 +261,7 @@ const TempleDetail = () => {
                                 )}`}
                                 target="_blank"
                                 rel="noreferrer"
-                                className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-brown-normal px-5 py-3 text-sm font-bold !text-white !no-underline transition hover:bg-brown-dark hover:!text-white"
+                                className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-brown-normal px-5 py-3 text-sm font-bold text-white! no-underline! transition hover:bg-brown-dark hover:text-white!"
                             >
                                 <FiNavigation />
                                 Open in Google Maps
