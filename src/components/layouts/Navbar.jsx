@@ -56,7 +56,7 @@ const Navbar = () => {
     },
     exit: { 
       x: '100%', 
-      transition: { type: 'spring', stiffness: 300, damping: 32 } 
+      transition: { duration: 0.2, ease: 'easeInOut' } 
     }
   };
 
@@ -142,104 +142,104 @@ const Navbar = () => {
 
       </div>
 
-      <AnimatePresence mode="wait">
+      <AnimatePresence>
         {isOpen && (
-          <>
-            <motion.div 
-              key="mobile-menu-backdrop"
-              variants={overlayVariants}
-              initial="hidden"
-              animate="visible"
-              exit="hidden"
-              transition={{ duration: 0.2 }}
-              onClick={() => setIsOpen(false)}
-              className="fixed inset-0 bg-black z-40 lg:hidden will-change-opacity"
-            />
+          <motion.div 
+            key="mobile-menu-backdrop"
+            variants={overlayVariants}
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            transition={{ duration: 0.2 }}
+            onClick={() => setIsOpen(false)}
+            className="fixed inset-0 bg-black z-40 lg:hidden will-change-opacity"
+          />
+        )}
 
-            <motion.div 
-              key="mobile-menu-drawer"
-              variants={drawerVariants}
-              initial="hidden"
-              animate="visible"
-              exit="hidden"
-              className="fixed top-0 right-0 bottom-0 w-4/5 max-w-sm bg-orange-light border-l border-orange-light-active z-50 p-6 flex flex-col justify-between lg:hidden shadow-xl will-change-transform"
-            >
-              <div>
-                <div className="flex items-center justify-between pb-6 border-b border-orange-light-active mb-6">
-                  <div className="flex items-center gap-3">
-                    <img src={logo} alt="TriDarmaBali Logo" className="h-10 w-auto object-contain" />
-                    <span className="text-xl font-bold text-brown-dark tracking-tight">
-                      TriDarma<span className="text-orange-normal">Bali</span>
-                    </span>
-                  </div>
-                  <button 
+        {isOpen && (
+          <motion.div 
+            key="mobile-menu-drawer"
+            variants={drawerVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            className="fixed top-0 right-0 bottom-0 w-4/5 max-w-sm bg-orange-light border-l border-orange-light-active z-50 p-6 flex flex-col justify-between lg:hidden shadow-xl will-change-transform"
+          >
+            <div>
+              <div className="flex items-center justify-between pb-6 border-b border-orange-light-active mb-6">
+                <div className="flex items-center gap-3">
+                  <img src={logo} alt="TriDarmaBali Logo" className="h-10 w-auto object-contain" />
+                  <span className="text-xl font-bold text-brown-dark tracking-tight">
+                    TriDarma<span className="text-orange-normal">Bali</span>
+                  </span>
+                </div>
+                <button 
+                  onClick={() => setIsOpen(false)}
+                  className="p-2 text-brown-dark hover:bg-orange-light-active rounded-xl transition-colors cursor-pointer"
+                >
+                  <FiX size={24} />
+                </button>
+              </div>
+
+              <ul className="flex flex-col gap-2">
+                {navLinks.map((link) => {
+                  const isActive = location.pathname === link.path;
+                  return (
+                    <li key={link.path}>
+                      <NavLink
+                        to={link.path}
+                        onClick={() => setIsOpen(false)}
+                        className={`h-12 px-4 rounded-xl flex items-center text-md font-semibold ${
+                          isActive 
+                            ? "bg-orange-normal text-orange-light font-bold" 
+                            : "text-brown-dark/80 hover:bg-orange-light-active/50 hover:text-brown-dark"
+                        }`}
+                      >
+                        {link.name}
+                      </NavLink>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+
+            <div className="pt-6 border-t border-orange-light-active">
+              {!isLoggedIn ? (
+                <Link 
+                  to="/login"
+                  onClick={() => setIsOpen(false)}
+                  className="h-12 w-full border-2 border-brown-dark bg-orange-light-active text-brown-normal font-bold text-[15px] rounded-full flex items-center justify-center gap-2 hover:bg-orange-normal hover:text-orange-light transition-colors duration-200"
+                >
+                  <PiSignInBold size={18} />
+                  <span>Sign In / Sign Up</span>
+                </Link>
+              ) : (
+                <div className="flex flex-col gap-3">
+                  <Link 
+                    to="/profile"
                     onClick={() => setIsOpen(false)}
-                    className="p-2 text-brown-dark hover:bg-orange-light-active rounded-xl transition-colors cursor-pointer"
+                    className="h-12 w-full border-2 border-brown-normal bg-orange-light-active text-brown-dark font-semibold text-[15px] rounded-xl flex items-center gap-3 px-4 hover:bg-orange-light-active transition-colors duration-200"
                   >
-                    <FiX size={24} />
+                    <div className="w-8 h-8 border border-brown-dark rounded-full flex items-center justify-center">
+                      <FiUser size={16} />
+                    </div>
+                    <span>My Profile</span>
+                  </Link>
+                  <button 
+                    onClick={() => {
+                      setIsLoggedIn(false);
+                      setIsOpen(false);
+                    }}
+                    className="h-12 w-full bg-brown-dark text-orange-light font-bold text-[15px] rounded-full flex items-center justify-center gap-2 hover:bg-brown-dark-hover transition-colors duration-200 cursor-pointer"
+                  >
+                    <PiSignOutBold size={18} />
+                    <span>Sign Out</span>
                   </button>
                 </div>
+              )}
+            </div>
 
-                <ul className="flex flex-col gap-2">
-                  {navLinks.map((link) => {
-                    const isActive = location.pathname === link.path;
-                    return (
-                      <li key={link.path}>
-                        <NavLink
-                          to={link.path}
-                          onClick={() => setIsOpen(false)}
-                          className={`h-12 px-4 rounded-xl flex items-center text-md font-semibold ${
-                            isActive 
-                              ? "bg-orange-normal text-orange-light font-bold" 
-                              : "text-brown-dark/80 hover:bg-orange-light-active/50 hover:text-brown-dark"
-                          }`}
-                        >
-                          {link.name}
-                        </NavLink>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-
-              <div className="pt-6 border-t border-orange-light-active">
-                {!isLoggedIn ? (
-                  <Link 
-                    to="/login"
-                    onClick={() => setIsOpen(false)}
-                    className="h-12 w-full border-2 border-brown-dark bg-orange-light-active text-brown-normal font-bold text-[15px] rounded-full flex items-center justify-center gap-2 hover:bg-orange-normal hover:text-orange-light transition-colors duration-200"
-                  >
-                    <PiSignInBold size={18} />
-                    <span>Sign In / Sign Up</span>
-                  </Link>
-                ) : (
-                  <div className="flex flex-col gap-3">
-                    <Link 
-                      to="/profile"
-                      onClick={() => setIsOpen(false)}
-                      className="h-12 w-full border-2 border-brown-normal bg-orange-light-active text-brown-dark font-semibold text-[15px] rounded-xl flex items-center gap-3 px-4 hover:bg-orange-light-active transition-colors duration-200"
-                    >
-                      <div className="w-8 h-8 border border-brown-dark rounded-full flex items-center justify-center">
-                        <FiUser size={16} />
-                      </div>
-                      <span>My Profile</span>
-                    </Link>
-                    <button 
-                      onClick={() => {
-                        setIsLoggedIn(false);
-                        setIsOpen(false);
-                      }}
-                      className="h-12 w-full bg-brown-dark text-orange-light font-bold text-[15px] rounded-full flex items-center justify-center gap-2 hover:bg-brown-dark-hover transition-colors duration-200 cursor-pointer"
-                    >
-                      <PiSignOutBold size={18} />
-                      <span>Sign Out</span>
-                    </button>
-                  </div>
-                )}
-              </div>
-
-            </motion.div>
-          </>
+          </motion.div>
         )}
       </AnimatePresence>
     </nav>
