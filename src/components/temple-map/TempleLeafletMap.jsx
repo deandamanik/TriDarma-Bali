@@ -43,6 +43,7 @@ const createTempleIcon = (status, isActive) => {
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: width 0.2s ease, height 0.2s ease; /* Menghaluskan perubahan ukuran marker */
         ">
             <img
             src="${iconPura}"
@@ -79,8 +80,10 @@ const MapFlyTo = ({ temple }) => {
     useEffect(() => {
         if (!temple) return;
 
-        map.flyTo(temple.coordinates, 11, {
-            duration: 0.8,
+        map.flyTo(temple.coordinates, 13, {
+            duration: 1.2,      
+            easeLinearity: 0.25, 
+            animate: true
         });
     }, [map, temple]);
 

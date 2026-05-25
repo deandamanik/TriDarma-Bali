@@ -66,7 +66,7 @@ const MapSearchBar = ({
                 setIsStatusOpen(!isStatusOpen);
                 setIsSortOpen(false);
               }}
-              className="flex h-12 w-full items-center justify-between gap-2 rounded-2xl border border-yellow-normal/70 bg-white px-3 text-left text-xs font-bold text-brown-normal shadow-lg shadow-brown-dark/10 md:h-14 md:px-4 transition-colors hover:bg-yellow-light/20"
+              className="flex h-12 w-full items-center justify-between gap-2 rounded-2xl border border-yellow-normal/70 bg-white px-3 text-left text-xs font-bold text-brown-normal shadow-lg shadow-brown-dark/10 md:h-14 md:px-4 transition-colors hover:bg-yellow-normal"
             >
               <div className="flex items-center gap-1.5 truncate">
                 <FiFilter size={16} className="shrink-0 text-brown-normal/80" />
@@ -91,7 +91,7 @@ const MapSearchBar = ({
                     className={`w-full rounded-lg px-3 py-2 text-left text-xs font-semibold transition-colors ${
                       statusFilter === key
                         ? 'bg-brown-normal text-white'
-                        : 'text-brown-dark hover:bg-yellow-light/40 hover:text-brown-normal'
+                        : 'text-brown-dark hover:bg-yellow-light/50 hover:text-brown-normal'
                     }`}
                   >
                     {statusLabels[key]}
@@ -108,7 +108,7 @@ const MapSearchBar = ({
                 setIsSortOpen(!isSortOpen);
                 setIsStatusOpen(false);
               }}
-              className="flex h-12 w-full items-center justify-between gap-2 rounded-2xl border border-yellow-normal/70 bg-white px-4 text-left text-xs font-bold text-brown-normal shadow-lg shadow-brown-dark/10 md:h-14 transition-colors hover:bg-yellow-light/20"
+              className="flex h-12 w-full items-center justify-between gap-2 rounded-2xl border border-yellow-normal/70 bg-white px-4 text-left text-xs font-bold text-brown-normal shadow-lg shadow-brown-dark/10 md:h-14 transition-colors hover:bg-yellow-normal"
             >
               <span className="truncate">{sortLabels[sortBy]}</span>
               <FiChevronDown
@@ -130,7 +130,7 @@ const MapSearchBar = ({
                     className={`w-full rounded-lg px-3 py-2 text-left text-xs font-semibold transition-colors ${
                       sortBy === key
                         ? 'bg-brown-normal text-white'
-                        : 'text-brown-dark hover:bg-yellow-light/40 hover:text-brown-normal'
+                        : 'text-brown-dark hover:bg-yellow-light/50 hover:text-brown-normal'
                     }`}
                   >
                     {sortLabels[key]}

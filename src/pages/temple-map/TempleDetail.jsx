@@ -53,7 +53,7 @@ const TempleDetail = () => {
     };
 
     return (
-        <main className="min-h-screen bg-orange-light font-poppins">
+        <main className="min-h-screen bg-white font-poppins">
             <section className="bg-brown-normal px-5 pb-16 pt-10 text-orange-light sm:px-8 lg:px-12">
                 <div className="mx-auto max-w-7xl">
                     <button
