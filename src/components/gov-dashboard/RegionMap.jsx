@@ -111,7 +111,7 @@ const RegionMap = ({ regions }) => {
                   direction="top"
                   offset={[0, -radius]}
                   opacity={1}
-                  className="!rounded-lg !border-0 !bg-brown-normal !px-2.5 !py-1.5 !text-orange-light !shadow-xl"
+                  className="rounded-lg! border-0! bg-brown-normal! px-2.5! py-1.5! text-orange-light! shadow-xl!"
                 >
                   <div className="font-poppins">
                     <p className="text-[11px] font-bold text-yellow-normal">
@@ -124,7 +124,7 @@ const RegionMap = ({ regions }) => {
                 </Tooltip>
 
                 <Popup>
-                  <div className="w-[220px] font-poppins">
+                  <div className="w-55 font-poppins">
                     <p className="text-[10px] font-semibold text-brown-dark/50">
                       Kabupaten / Kota
                     </p>
@@ -168,7 +168,7 @@ const RegionMap = ({ regions }) => {
         </MapContainer>
 
         {/* Floating legend */}
-        <div className="pointer-events-none absolute left-4 top-4 z-[500] rounded-2xl border border-brown-dark/10 bg-white/95 px-3.5 py-2.5 shadow-lg backdrop-blur">
+        <div className="pointer-events-none absolute left-4 top-4 z-10 rounded-2xl border border-brown-dark/10 bg-white/95 px-3.5 py-2.5 shadow-lg backdrop-blur">
           <p className="mb-1.5 text-[11px] font-semibold text-brown-dark/65">
             Intensitas laporan
           </p>
