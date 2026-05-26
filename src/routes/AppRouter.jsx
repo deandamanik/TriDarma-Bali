@@ -11,7 +11,7 @@ import Calendar from '../pages/calendar/Calendar';
 import TempleDetail from '../pages/temple-map/TempleDetail';
 import Profile from '../pages/profile/Profile';
 
-// Gov Dashboard
+// Gov Dashboard (Super Admin / Pemprov)
 import GovDashboardLayout from '../pages/gov-dashboard/GovDashboardLayout';
 import GovDashboardSummary from '../pages/gov-dashboard/GovDashboardSummary';
 import GovDashboardReports from '../pages/gov-dashboard/GovDashboardReports';
@@ -19,6 +19,13 @@ import GovDashboardMap from '../pages/gov-dashboard/GovDashboardMap';
 import GovDashboardCalendar from '../pages/gov-dashboard/GovDashboardCalendar';
 import GovDashboardNotifications from '../pages/gov-dashboard/GovDashboardNotifications';
 import GovDashboardSettings from '../pages/gov-dashboard/GovDashboardSettings';
+
+// Operator Desa Adat Dashboard
+import OperatorLayout from '../pages/operator-dashboard/OperatorLayout';
+import OperatorOverview from '../pages/operator-dashboard/OperatorOverview';
+import OperatorTemples from '../pages/operator-dashboard/OperatorTemples';
+import OperatorUmkm from '../pages/operator-dashboard/OperatorUmkm';
+import OperatorSettings from '../pages/operator-dashboard/OperatorSettings';
 
 const AppRouter = () => {
   return (
@@ -46,6 +53,14 @@ const AppRouter = () => {
         <Route path="pengaturan" element={<GovDashboardSettings />} />
       </Route>
 
+      <Route path="/operator-dashboard" element={<OperatorLayout />}>
+        <Route index element={<OperatorOverview />} />
+        <Route path="pura" element={<OperatorTemples />} />
+        <Route path="umkm" element={<OperatorUmkm />} />
+        <Route path="pengaturan" element={<OperatorSettings />} />
+      </Route>
+
+      {/* 404 */}
       <Route
         path="*"
         element={
