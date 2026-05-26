@@ -11,6 +11,15 @@ import Calendar from '../pages/calendar/Calendar';
 import TempleDetail from '../pages/temple-map/TempleDetail';
 import Profile from '../pages/profile/Profile';
 
+// Gov Dashboard
+import GovDashboardLayout from '../pages/gov-dashboard/GovDashboardLayout';
+import GovDashboardSummary from '../pages/gov-dashboard/GovDashboardSummary';
+import GovDashboardReports from '../pages/gov-dashboard/GovDashboardReports';
+import GovDashboardMap from '../pages/gov-dashboard/GovDashboardMap';
+import GovDashboardCalendar from '../pages/gov-dashboard/GovDashboardCalendar';
+import GovDashboardNotifications from '../pages/gov-dashboard/GovDashboardNotifications';
+import GovDashboardSettings from '../pages/gov-dashboard/GovDashboardSettings';
+
 const AppRouter = () => {
   return (
     <Routes>
@@ -19,17 +28,32 @@ const AppRouter = () => {
         <Route path="/cultural-encyclopedia" element={<CulturalEncyclopedia />} />
         <Route path="/cultural-encyclopedia/:articleId" element={<ArticleDetail />} />
         <Route path="/temple-map" element={<TempleMap />} />
-        <Route path="/temple-map" element={<TempleMap />} />
         <Route path="/temple-map/:templeId" element={<TempleDetail />} />
         <Route path="/report-violations" element={<ReportViolations />} />
         <Route path="/calendar" element={<Calendar />} />
       </Route>
+
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/profile" element={<Profile />} />
 
-      {/* Halaman 404 / Not Found */}
-      <Route path="*" element={<div className="flex items-center justify-center h-screen">404 - Halaman Tidak Ditemukan</div>} />
+      <Route path="/gov-dashboard" element={<GovDashboardLayout />}>
+        <Route index element={<GovDashboardSummary />} />
+        <Route path="laporan" element={<GovDashboardReports />} />
+        <Route path="peta" element={<GovDashboardMap />} />
+        <Route path="kalender" element={<GovDashboardCalendar />} />
+        <Route path="notifikasi" element={<GovDashboardNotifications />} />
+        <Route path="pengaturan" element={<GovDashboardSettings />} />
+      </Route>
+
+      <Route
+        path="*"
+        element={
+          <div className="flex h-screen items-center justify-center">
+            404 - Halaman Tidak Ditemukan
+          </div>
+        }
+      />
     </Routes>
   );
 };
