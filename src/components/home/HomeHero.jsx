@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom'; 
 import { FiCheckCircle, FiArrowRight, FiMapPin } from 'react-icons/fi';
 import heroBg from '../../assets/home/home-hero-bg.png';
 
@@ -65,23 +66,29 @@ const HomeHero = () => {
           variants={itemVariants}
           className="flex flex-col sm:flex-row items-center gap-4 mt-6 md:mt-8 w-full sm:w-auto px-4 sm:px-0"
         >
-          <button className="h-12 w-full sm:w-auto px-6 bg-orange-normal text-brown-dark font-bold text-[15px] rounded-full flex items-center justify-center gap-2.5 hover:bg-orange-normal-hover transition-all duration-200 cursor-pointer shadow-md">
+          <Link 
+            to="/cultural-encyclopedia" 
+            className="h-12 w-full sm:w-auto px-6 bg-orange-normal text-brown-dark font-bold text-[15px] rounded-full flex items-center justify-center gap-2.5 hover:bg-orange-normal-hover transition-all duration-200 cursor-pointer shadow-md decoration-none"
+          >
             <span>Start Exploration</span>
             <FiArrowRight size={19} className="shrink-0" />
-          </button>
+          </Link>
 
-          <button className="group h-12 w-full sm:w-auto px-6 border-2 border-orange-normal bg-black/20 text-orange-normal font-semibold text-[15px] rounded-full flex items-center justify-center gap-2.5 hover:bg-black/40 hover:border-orange-normal-active transition-all duration-200 cursor-pointer shadow-md backdrop-blur-xs">
+          <Link 
+            to="/temple-map" 
+            className="group h-12 w-full sm:w-auto px-6 border-2 border-orange-normal bg-black/20 text-orange-normal font-semibold text-[15px] rounded-full flex items-center justify-center gap-2.5 hover:bg-black/40 hover:border-orange-normal-active transition-all duration-200 cursor-pointer shadow-md backdrop-blur-xs decoration-none"
+          >
             <FiMapPin
               size={19}
               className="text-orange-normal group-hover:scale-110 transition-transform duration-200"
             />
             <span>View Temple Map</span>
-          </button>
+          </Link>
         </motion.div>
 
         <motion.div
           variants={itemVariants}
-          className="grid grid-cols-2 md:flex md:flex-wrap items-center justify-center gap-x-8 gap-y-4 mt-12 md:mt-20 border-t border-orange-normal/15 pt-6 md:pt- w-full max-w-200 px-6 sm:px-2"
+          className="grid grid-cols-2 md:flex md:flex-wrap items-center justify-center gap-x-8 gap-y-4 mt-12 md:mt-20 border-t border-orange-normal/15 pt-6 w-full max-w-200 px-6 sm:px-2"
         >
           {features.map((feature, idx) => (
             <div
