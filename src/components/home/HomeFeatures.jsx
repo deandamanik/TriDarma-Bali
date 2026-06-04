@@ -10,10 +10,38 @@ const HomeFeatures = () => {
   const [activeDot, setActiveDot] = useState(0);
 
   const features = [
-    { id: 1, title: 'Interactive Temple Map', desc: 'Find real-time information on visitor status, active ceremonies, and local MSMEs around more than 1,700 temples in Bali.', linkText: 'Open Features', img: templeMapImg },
-    { id: 2, title: 'Traditional Ceremony Calendar', desc: 'Plan your visit with an integrated calendar that combines the Gregorian, Saka, and Pawukon Balinese systems.', linkText: 'Open Features', img: calendarImg },
-    { id: 3, title: 'Cultural Encyclopedia', desc: 'Learn about Balinese dress codes, etiquette, the meaning of ceremonies, and local wisdom before visiting sacred areas.', linkText: 'Open Features', img: encyclopediaImg },
-    { id: 4, title: 'Report Violations', desc: 'Report cultural violations directly to the Badung Tourism Office. Your identity is fully protected.', linkText: 'Open Features', img: reportImg },
+    { 
+      id: 1, 
+      title: 'Interactive Temple Map', 
+      desc: 'Find real-time information on visitor status, active ceremonies, and local MSMEs around more than 1,700 temples in Bali.', 
+      linkText: 'Open Features', 
+      img: templeMapImg,
+      path: '/temple-map' 
+    },
+    { 
+      id: 2, 
+      title: 'Traditional Ceremony Calendar', 
+      desc: 'Plan your visit with an integrated calendar that combines the Gregorian, Saka, and Pawukon Balinese systems.', 
+      linkText: 'Open Features', 
+      img: calendarImg,
+      path: '/calendar' 
+    },
+    { 
+      id: 3, 
+      title: 'Cultural Encyclopedia', 
+      desc: 'Learn about Balinese dress codes, etiquette, the meaning of ceremonies, and local wisdom before visiting sacred areas.', 
+      linkText: 'Open Features', 
+      img: encyclopediaImg,
+      path: '/cultural-encyclopedia' 
+    },
+    { 
+      id: 4, 
+      title: 'Report Violations', 
+      desc: 'Report cultural violations directly to the Badung Tourism Office. Your identity is fully protected.', 
+      linkText: 'Open Features', 
+      img: reportImg,
+      path: '/report-violations' 
+    },
   ];
 
   const handleScroll = () => {
@@ -54,7 +82,7 @@ const HomeFeatures = () => {
             <div className="hidden md:flex items-center gap-3 shrink-0">
               <button 
                 onClick={() => scrollDesktop('left')} 
-                className="w-10 h-10 rounded-full flex items-center justify-center bg-white text-[#e19e59] shadow-sm hover:bg-white/90 active:scale-95 transition"
+                className="w-10 h-10 rounded-full flex items-center justify-center bg-white text-[#e19e59] shadow-sm hover:bg-white/90 active:scale-95 transition cursor-pointer"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="w-5 h-5">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
@@ -62,7 +90,7 @@ const HomeFeatures = () => {
               </button>
               <button 
                 onClick={() => scrollDesktop('right')} 
-                className="w-10 h-10 rounded-full flex items-center justify-center bg-white text-[#e19e59] shadow-sm hover:bg-white/90 active:scale-95 transition"
+                className="w-10 h-10 rounded-full flex items-center justify-center bg-white text-[#e19e59] shadow-sm hover:bg-white/90 active:scale-95 transition cursor-pointer"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="w-5 h-5">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />

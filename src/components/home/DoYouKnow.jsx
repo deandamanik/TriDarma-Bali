@@ -1,10 +1,11 @@
+import { Link } from 'react-router-dom';
 import didYouKnowBg from '../../assets/home/did-you-know-bg.png';
 
 const DidYouKnow = () => {
   return (
-    <section className="w-full bg-orange-normal font-poppins overflow-hidden rounded-b-[60px] md:rounded-b-[200px] ">
+    <section className="w-full bg-orange-normal font-poppins overflow-hidden rounded-b-[60px] md:rounded-b-[200px]">
       <div 
-        className="w-full relative overflow-hidden bg- bg-cover bg-center pt-24 pb-24 px-6 sm:px-12 md:px-20 lg:px-32 rounded-[60px] sm:rounded-[120px] md:rounded-[200px] border-4 border-white shadow-inner"
+        className="w-full relative overflow-hidden bg-cover bg-center pt-24 pb-24 px-6 sm:px-12 md:px-20 lg:px-32 rounded-[60px] sm:rounded-[120px] md:rounded-[200px] border-4 border-white shadow-inner"
         style={{ backgroundImage: `url(${didYouKnowBg})` }}
       >
         <div className="absolute inset-0 mix-blend-multiply z-0" />
@@ -26,19 +27,25 @@ const DidYouKnow = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
-            <button className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-brown-dark text-white text-xs md:text-sm font-bold flex items-center justify-center gap-2 hover:bg-[#2b1607] transition shadow-md">
+            <Link 
+              to="/cultural-encyclopedia"
+              className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-brown-dark text-white text-xs md:text-sm font-bold flex items-center justify-center gap-2 hover:bg-[#2b1607] transition shadow-md no-underline box-border cursor-pointer"
+            >
               <span>Learn Cultural Guide</span>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="w-3.5 h-3.5">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
               </svg>
-            </button>
+            </Link>
 
-            <button className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-transparent text-brown-dark text-xs md:text-sm font-bold flex items-center justify-center gap-2 border border-brown-dark hover:bg-brown-dark/10 transition">
+            <Link 
+              to="/report-violations"
+              className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-transparent text-brown-dark text-xs md:text-sm font-bold flex items-center justify-center gap-2 border border-brown-dark hover:bg-brown-dark/10 transition no-underline box-border cursor-pointer"
+            >
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-4 h-4">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
               </svg>
               <span>Report Violations</span>
-            </button>
+            </Link>
           </div>
 
         </div>

@@ -20,7 +20,7 @@ const ReportHero = () => {
           Cultural Violation Report
         </h1>
         <p className="text-sm sm:text-base md:text-lg text-orange-normal font-semibold tracking-wide mb-8 max-w-2xl mx-auto">
-          Report violations of customs and culture directly to the Badung Regency Tourism Office.
+          Report violations of customs and culture directly to the Bali Province Tourism Office.
         </p>
         
         <div className="flex flex-wrap justify-center items-center gap-6 text-white text-xs sm:text-sm font-medium">

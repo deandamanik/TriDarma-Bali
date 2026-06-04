@@ -1,4 +1,6 @@
-const FeatureCard = ({ title, desc, linkText, img }) => {
+import { Link } from 'react-router-dom';
+
+const FeatureCard = ({ title, desc, linkText, img, path }) => {
   return (
     <div className="flex-1 min-w-70 bg-white rounded-3xl overflow-hidden shadow-sm flex flex-col text-brown-normal border-2 border-brown-normal/80">
       <div className="w-full h-44 overflow-hidden">
@@ -19,12 +21,15 @@ const FeatureCard = ({ title, desc, linkText, img }) => {
           </p>
         </div>
 
-        <div className="flex items-center text-xs font-bold text-orange-normal hover:opacity-80 cursor-pointer transition w-max gap-1">
+        <Link 
+          to={path || '/'} 
+          className="flex items-center text-xs font-bold text-orange-normal hover:opacity-80 cursor-pointer transition w-max gap-1 no-underline"
+        >
           <span>{linkText}</span>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="w-3 h-3 mt-0.5">
             <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
           </svg>
-        </div>
+        </Link>
       </div>
     </div>
   );
